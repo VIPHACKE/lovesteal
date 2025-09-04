@@ -1,0 +1,286 @@
+
+/* Import Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;700&display=swap');
+
+/* Package Card 3D Click Effect */
+
+.package-card {
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.package-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(255, 152, 0, 0.4);
+}
+
+.package-card:active {
+    transform: translateY(2px) scale(0.98);
+    box-shadow: 0 5px 10px rgba(255, 152, 0, 0.3);
+}
+
+
+/* Popup Overlay */
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 15, 15, 0.75);
+    /* Transparent dark background */
+    backdrop-filter: blur(8px);
+    /* Blur effect */
+    display: none;
+    /* Default hidden */
+    z-index: 1000;
+    overflow: auto;
+    /* Scrollable if content overflows */
+}
+
+
+/* Rank Popup */
+
+.rank-popup {
+    max-width: 600px;
+    width: 90%;
+    background: rgba(18, 18, 18, 0.9);
+    /* Transparent dark background */
+    backdrop-filter: blur(10px);
+    /* Inner blur */
+    padding: 40px;
+    padding-top: 90px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255, 152, 0, 0.6), 0 0 60px rgba(0, 255, 195, 0.3);
+    position: absolute;
+    /* Changed to absolute for centering */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Center horizontally and vertically */
+    overflow-y: auto;
+    max-height: 85vh;
+    border: 1px solid rgba(255, 152, 0, 0.3);
+    animation: popupFlip 0.6s ease-out forwards;
+    transform-style: preserve-3d;
+}
+
+@keyframes popupFlip {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8) rotateX(-20deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) rotateX(0deg);
+    }
+}
+
+
+/* Rank Image */
+
+.rank-img {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    animation: rotateRank 5s linear infinite;
+    filter: drop-shadow(0 0 10px #00ffc3);
+}
+
+@keyframes rotateRank {
+    0% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+
+
+/* Close Button */
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.4s ease, color 0.3s ease;
+}
+
+.close-btn:hover {
+    transform: rotate(180deg) scale(1.2);
+    color: #f44336;
+}
+
+
+/* Rank Title */
+
+.rank-popup h2 {
+    text-align: center;
+    font-size: 30px;
+    color: #ff9800;
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(255, 152, 0, 0.7);
+}
+
+
+/* Rank Price */
+
+.rank-price {
+    font-size: 26px;
+    color: #00ffc3;
+    font-weight: bold;
+    text-shadow: 0 0 12px rgba(0, 255, 195, 0.6);
+    animation: glowingText 2s infinite alternate;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 20px;
+}
+
+@keyframes glowingText {
+    0% {
+        text-shadow: 0 0 5px rgba(0, 255, 195, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 20px #00ffc3;
+    }
+}
+
+
+/* Rank Features */
+
+.rank-features {
+    margin-top: 20px;
+    color: #e0e0e0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    animation: fadeInFeatures 0.8s ease-in-out;
+}
+
+.rank-features ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.rank-features li {
+    position: relative;
+    padding-left: 25px;
+}
+
+.rank-features li::before {
+    content: "✔";
+    color: #00ffc3;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(0, 255, 195, 0.5);
+}
+
+@keyframes fadeInFeatures {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Buy Button */
+
+.buy-btn {
+    margin-top: 25px;
+    background: linear-gradient(45deg, #ff9800, #ffc107);
+    color: #000;
+    padding: 14px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 0 15px rgba(255, 152, 0, 0.6);
+    font-family: 'Poppins', sans-serif;
+}
+
+.buy-btn:hover {
+    transform: scale(1.05);
+    box-shadow: -10px 0 25px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 152, 0, 0.5);
+}
+
+.buy-btn:active {
+    transform: scale(0.98);
+    box-shadow: -10px 0 25px rgba(0, 0, 0, 0.6);
+}
+
+
+
+
+
+
+
+/* Currency Button */
+
+.currency-btn {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 999;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #000000, #411500);
+  color: #ff9900;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 0 10px #006357, 0 0 25px #00ccff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 12px;
+}
+
+.currency-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ffa500, 0 0 35px #ff4500;
+}
+
+/* 📱 Mobile Responsive */
+@media (max-width: 768px) {
+  .currency-btn {
+    padding: 8px 12px;
+    font-size: 11px;
+    top: 5px;
+    left: 5px;
+  }
+}
+
+/* 📱 Extra Small Devices */
+@media (max-width: 480px) {
+  .currency-btn {
+    padding: 6px 6px;
+    font-size: 10px;
+    top: 5px;
+    left: 5px;
+  }
+}
+
+
+
+
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,75 @@
+/* responsive.css */
+
+/* Reset padding and margin for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Mobile first */
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 10px;
+  }
+  
+  /* Tablet */
+  @media (min-width: 600px) {
+    body {
+      font-size: 16px;
+      padding: 20px;
+    }
+  }
+  
+  /* Laptop/Desktop */
+  @media (min-width: 900px) {
+    body {
+      font-size: 18px;
+      padding: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+  }
+
+  
+
+
+        /* Auto Responsive Tadka - NO class/id needed */
+        html {
+          scroll-behavior: smooth;
+        }
+        
+        body {
+          box-sizing: border-box;
+          max-width: 100vw;
+          overflow-x: hidden;
+        }
+        
+        /* Text and Elements scale on screen */
+        * {
+          box-sizing: inherit;
+          font-family: 'Poppins', sans-serif;
+          word-wrap: break-word;
+        }
+        
+        img, video {
+          max-width: 100%;
+          height: auto;
+        }
+        
+        /* Auto responsive padding/margin based on screen */
+        @media (max-width: 768px) {
+          body {
+            font-size: 14px;
+            padding: 10px;
+          }
+        }
+        
+        @media (min-width: 769px) {
+          body {
+            font-size: 16px;
+            padding: 20px;
+          }
+        }
+       

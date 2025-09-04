@@ -1,0 +1,256 @@
+/* Menu CSS */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease;
+    z-index: 1000;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -380px;
+    width: 350px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    box-shadow: -10px 0 25px rgba(0, 0, 0, 0.6);
+    border-left: 2px solid #4facfe;
+    transition: right 0.5s ease;
+    z-index: 1100;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.show {
+    right: 0;
+}
+
+.sidebar header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.sidebar header h2 {
+    font-size: 26px;
+    color: #4facfe;
+    text-shadow: 0 0 5px #00f2fe;
+}
+
+.close-btn {
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: #ff4e50;
+    transform: rotate(180deg);
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #4facfe;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(79, 172, 254, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease forwards;
+    backdrop-filter: blur(6px);
+}
+
+.menu-item img {
+    width: 36px;
+    height: 36px;
+    margin-right: 15px;
+    filter: drop-shadow(0 0 4px #00f2fe);
+}
+
+.menu-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #00f2fe;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Login CSS */
+
+.login-popup,
+.profile-popup {
+    max-width: 400px;
+    margin: 80px auto;
+    background: linear-gradient(145deg, #1a1a1a, #2b2b2b);
+    border-radius: 16px;
+    padding: 30px 20px;
+    box-shadow: 0 0 25px #ffab00aa, 0 0 50px #ffaa00a0 inset;
+    animation: glowFade 1.5s ease-out, floatUp 1s ease;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1200;
+    display: none;
+}
+
+@keyframes glowFade {
+    0% {
+        box-shadow: 0 0 0px #ffab00aa;
+    }
+    100% {
+        box-shadow: 0 0 25px #ffab00aa, 0 0 50px #ffaa00a0 inset;
+    }
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translate(-50%, -30%);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+.login-popup h2,
+.profile-popup h2 {
+    color: #ffab00;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 0 5px #ffaa00;
+}
+
+.btc-logo {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 200px;
+    animation: spin 5s linear infinite, pulse 2s infinite;
+    filter: drop-shadow(0 0 6px #ffab00);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 5px #ffaa00);
+    }
+    50% {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 15px #ffaa00);
+    }
+}
+
+.login-popup input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: #2c2c2c;
+    color: #fff;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px #000 inset;
+}
+
+.login-popup button,
+.profile-popup button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #ffab00;
+    color: #000;
+    cursor: pointer;
+    box-shadow: 0 0 10px #ffaa00, 0 0 20px #ffaa00;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    text-shadow: 0 0 2px #000;
+}
+
+.profile-popup {
+    background: #1c1c1c;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 0 20px #ffab00;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.profile-popup img {
+    width: 100px;
+    /* Full body width, adjust as needed */
+    height: auto;
+    /* Maintains aspect ratio */
+    display: block;
+    margin: 0 auto 15px auto;
+    /* Centers the image */
+    border: 2px solid #fff;
+    /* Optional border */
+    border-radius: 5px;
+    /* Slight rounding */
+}
+
+.profile-popup span {
+    color: #ffab00;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 20px;
+}
